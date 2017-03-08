@@ -10,7 +10,7 @@ namespace BookScaleApp.Model
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Author Author { get; set; }
+        public int Author_ID { get; set; }
 
     }
 }

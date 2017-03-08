@@ -55,24 +55,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201702281741447_InitialCreate.cs" />
+    <Compile Include="Migrations\201702281741447_InitialCreate.Designer.cs">
+      <DependentUpon>201702281741447_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703051538448_ChangeDateTime.cs" />
+    <Compile Include="Migrations\201703051538448_ChangeDateTime.Designer.cs">
+      <DependentUpon>201703051538448_ChangeDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703062106137_TableFix.cs" />
+    <Compile Include="Migrations\201703062106137_TableFix.Designer.cs">
+      <DependentUpon>201703062106137_TableFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Context.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="Presenter\AuthorsPresenter.cs" />
+    <Compile Include="Presenter\BooksPresenter.cs" />
+    <Compile Include="View\AuthorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\AuthorsForm.Designer.cs">
+      <DependentUpon>AuthorsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\BookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BookForm.Designer.cs">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\IAuthorsView.cs" />
+    <Compile Include="View\IBooksView.cs" />
+    <Compile Include="View\IView.cs" />
+    <Compile Include="_BookScaleApp_Model_ContextDataSet.cs">
+      <DependentUpon>_BookScaleApp_Model_ContextDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_BookScaleApp_Model_ContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_BookScaleApp_Model_ContextDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702281741447_InitialCreate.resx">
+      <DependentUpon>201702281741447_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703051538448_ChangeDateTime.resx">
+      <DependentUpon>201703051538448_ChangeDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703062106137_TableFix.resx">
+      <DependentUpon>201703062106137_TableFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AuthorsForm.resx">
+      <DependentUpon>AuthorsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,6 +119,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\BookForm.resx">
+      <DependentUpon>BookForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,9 +147,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presenter\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

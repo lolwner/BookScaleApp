@@ -389,7 +389,7 @@ namespace BookScaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AuthorsRow AddAuthorsRow(string Name, int DateOfBirth, int DateOfDeath) {
+            public AuthorsRow AddAuthorsRow(string Name, System.DateTime DateOfBirth, System.DateTime DateOfDeath) {
                 AuthorsRow rowAuthorsRow = ((AuthorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -438,9 +438,9 @@ namespace BookScaleApp {
                 base.Columns.Add(this.columnID);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
-                this.columnDateOfBirth = new global::System.Data.DataColumn("DateOfBirth", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnDateOfBirth = new global::System.Data.DataColumn("DateOfBirth", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateOfBirth);
-                this.columnDateOfDeath = new global::System.Data.DataColumn("DateOfDeath", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnDateOfDeath = new global::System.Data.DataColumn("DateOfDeath", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateOfDeath);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
@@ -621,9 +621,9 @@ namespace BookScaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DateOfBirth {
+            public System.DateTime DateOfBirth {
                 get {
-                    return ((int)(this[this.tableAuthors.DateOfBirthColumn]));
+                    return ((global::System.DateTime)(this[this.tableAuthors.DateOfBirthColumn]));
                 }
                 set {
                     this[this.tableAuthors.DateOfBirthColumn] = value;
@@ -632,10 +632,10 @@ namespace BookScaleApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DateOfDeath {
+            public System.DateTime DateOfDeath {
                 get {
                     try {
-                        return ((int)(this[this.tableAuthors.DateOfDeathColumn]));
+                        return ((global::System.DateTime)(this[this.tableAuthors.DateOfDeathColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'DateOfDeath\' in table \'Authors\' is DBNull.", e);
