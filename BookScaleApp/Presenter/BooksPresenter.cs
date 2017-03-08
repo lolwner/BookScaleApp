@@ -39,5 +39,41 @@ namespace BookScaleApp.Presenter
             }
             return BooksList;
         }
+
+        public void DeleteBook()
+        {
+            using (var db = new Context())
+            {
+                var query = from b in db.Books where (b.Name == view.ChosenBook) select b;
+                db.Books.Remove(query.FirstOrDefault());
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateBook(string AuthorName, string Name)
+        {
+            using (var db = new Context())
+            {
+                var book = from b in db.Books where (b.Name == view.ChosenBook) select b;
+
+                var author_id = from a in db.Authors where (a.Name == AuthorName) select a;
+                book.FirstOrDefault().Author_ID = author_id.FirstOrDefault().ID;
+                book.FirstOrDefault().Name = Name;
+                db.SaveChanges();
+            }
+        }
+
+        public void CreateBook(string AuthorName, string Name)
+        {
+            using (var db = new Context())
+            {
+                var author_id = from a in db.Authors where (a.Name == AuthorName) select a;
+                Book book = new Book();
+                book.Author_ID = author_id.FirstOrDefault().ID;
+                book.Name = Name;
+                db.Books.Add(book);
+                db.SaveChanges();
+            }
+        }
     }
 }

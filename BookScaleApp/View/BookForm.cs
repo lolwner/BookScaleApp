@@ -46,5 +46,21 @@ namespace BookScaleApp.View
             textBox1.Text = ChosenBook;
             textBox2.Text = ChosenAuthor;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            presenter.DeleteBook();
+            listBox1.Items.Remove(books.Find(x => x == ChosenBook));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            presenter.UpdateBook(textBox2.Text, textBox1.Text);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            presenter.CreateBook(textBox2.Text, textBox1.Text);
+        }
     }
 }
