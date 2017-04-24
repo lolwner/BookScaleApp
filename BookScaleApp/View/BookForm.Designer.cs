@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BookNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.AuthorNameTextBox = new System.Windows.Forms.TextBox();
             this.bookScaleAppModelContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._BookScaleApp_Model_ContextDataSet = new BookScaleApp._BookScaleApp_Model_ContextDataSet();
             this.bookScaleAppModelContextDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bookScaleAppModelContextDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BooksListBox = new System.Windows.Forms.ListBox();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookScaleAppModelContextDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._BookScaleApp_Model_ContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookScaleAppModelContextDataSetBindingSource1)).BeginInit();
@@ -53,17 +53,17 @@
             this.label1.Location = new System.Drawing.Point(162, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 15);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Book name";
             // 
-            // textBox1
+            // BookNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(236, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 1;
+            this.BookNameTextBox.Location = new System.Drawing.Point(236, 10);
+            this.BookNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.BookNameTextBox.Name = "BookNameTextBox";
+            this.BookNameTextBox.Size = new System.Drawing.Size(76, 20);
+            this.BookNameTextBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -71,17 +71,17 @@
             this.label2.Location = new System.Drawing.Point(164, 44);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 15);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Author is";
             // 
-            // textBox2
+            // AuthorNameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(236, 44);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(76, 20);
-            this.textBox2.TabIndex = 3;
+            this.AuthorNameTextBox.Location = new System.Drawing.Point(236, 44);
+            this.AuthorNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AuthorNameTextBox.Name = "AuthorNameTextBox";
+            this.AuthorNameTextBox.Size = new System.Drawing.Size(76, 20);
+            this.AuthorNameTextBox.TabIndex = 3;
             // 
             // bookScaleAppModelContextDataSetBindingSource
             // 
@@ -103,58 +103,58 @@
             this.bookScaleAppModelContextDataSetBindingSource2.DataSource = this._BookScaleApp_Model_ContextDataSet;
             this.bookScaleAppModelContextDataSetBindingSource2.Position = 0;
             // 
-            // listBox1
+            // BooksListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(9, 10);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(151, 173);
-            this.listBox1.TabIndex = 5;
-            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.BooksListBox.FormattingEnabled = true;
+            this.BooksListBox.Location = new System.Drawing.Point(9, 10);
+            this.BooksListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.BooksListBox.Name = "BooksListBox";
+            this.BooksListBox.Size = new System.Drawing.Size(151, 173);
+            this.BooksListBox.TabIndex = 5;
+            this.BooksListBox.Click += new System.EventHandler(this.BooksListBox_Click);
             // 
-            // button1
+            // DeleteButton
             // 
-            this.button1.Location = new System.Drawing.Point(165, 138);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.DeleteButton.Location = new System.Drawing.Point(165, 138);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 6;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // button2
+            // UpdateButton
             // 
-            this.button2.Location = new System.Drawing.Point(165, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.UpdateButton.Location = new System.Drawing.Point(165, 82);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.UpdateButton.TabIndex = 7;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // button3
+            // AddButton
             // 
-            this.button3.Location = new System.Drawing.Point(165, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.AddButton.Location = new System.Drawing.Point(165, 109);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.TabIndex = 8;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 300);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.UpdateButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.BooksListBox);
+            this.Controls.Add(this.AuthorNameTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BookNameTextBox);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BookForm";
@@ -171,16 +171,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox BookNameTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox AuthorNameTextBox;
         private _BookScaleApp_Model_ContextDataSet _BookScaleApp_Model_ContextDataSet;
         private System.Windows.Forms.BindingSource bookScaleAppModelContextDataSetBindingSource;
         private System.Windows.Forms.BindingSource bookScaleAppModelContextDataSetBindingSource2;
         private System.Windows.Forms.BindingSource bookScaleAppModelContextDataSetBindingSource1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListBox BooksListBox;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button AddButton;
     }
 }

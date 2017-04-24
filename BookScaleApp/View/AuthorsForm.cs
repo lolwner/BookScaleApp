@@ -24,10 +24,8 @@ namespace BookScaleApp
 
         public string ChosenAuthor
         {
-            get { return dataGridView1.CurrentRow.Cells[0].Value.ToString(); }
+            get { return AuthorsDataGrid.CurrentRow.Cells[0].Value.ToString(); }
         }
-
-
 
         public void ShowInfo()
         {
@@ -36,51 +34,45 @@ namespace BookScaleApp
             {
                 MessageBox.Show(i);
             }
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ShowAuthorButton_Click(object sender, EventArgs e)
         {
             ShowInfo();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_BookScaleApp_Model_ContextDataSet.Authors' table. You can move, or remove it, as needed.
-            this.authorsTableAdapter.Fill(this._BookScaleApp_Model_ContextDataSet.Authors);
-            
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ShowBooksButton_Click(object sender, EventArgs e)
         {
             var Form = new BookForm(ChosenAuthor);
             Form.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void DeleteAuthorButton_Click(object sender, EventArgs e)
         {
             presenter.DeleteAuthor();
             this.authorsTableAdapter.Fill(this._BookScaleApp_Model_ContextDataSet.Authors);
-           
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-            
             presenter.UpdateAuthor(textBoxName.Text, dateTimePickerDoB.Value, dateTimePickerDoD.Value);
             this.authorsTableAdapter.Fill(this._BookScaleApp_Model_ContextDataSet.Authors);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            textBoxName.Text = ChosenAuthor;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             presenter.CreateAuthor(textBoxName.Text, dateTimePickerDoB.Value, dateTimePickerDoD.Value);
             this.authorsTableAdapter.Fill(this._BookScaleApp_Model_ContextDataSet.Authors);
+        }
+
+        private void AuthorsForm_Load(object sender, EventArgs e)
+        {
+            this.authorsTableAdapter.Fill(this._BookScaleApp_Model_ContextDataSet.Authors);
+        }
+
+        private void AuthorsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxName.Text = ChosenAuthor;
         }
     }
 }

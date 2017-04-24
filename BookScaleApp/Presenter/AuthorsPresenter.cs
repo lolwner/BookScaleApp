@@ -8,12 +8,9 @@ using BookScaleApp.Model;
 
 namespace BookScaleApp.Presenter
 {
-
-
     public class AuthorsPresenter 
     {
         private IAuthorsView view;
-
 
         public AuthorsPresenter(IAuthorsView view)
         {
@@ -56,36 +53,35 @@ namespace BookScaleApp.Presenter
                 {
                     db.Books.Remove(i);
                 }
-                db.Authors.Remove(author_id.FirstOrDefault());
+                db.Authors.Remove(author_id.FirstOrDefault());    
 
                 db.SaveChanges();
             }
         }
 
-        public void UpdateAuthor(string name, DateTime DoB, DateTime DoD)
+        public void UpdateAuthor(string name, DateTime dateOfBirth, DateTime dateOfDeath)
         {
             using (var db = new Context())
             {
                 var author = from a in db.Authors where (a.Name == view.ChosenAuthor) select a;
                 author.FirstOrDefault().Name = name;
-                author.FirstOrDefault().DateOfBirth = DoB;
-                author.FirstOrDefault().DateOfDeath = DoD;
+                author.FirstOrDefault().DateOfBirth = dateOfBirth;
+                author.FirstOrDefault().DateOfDeath = dateOfDeath;
 
                 db.SaveChanges();
             }
         }
 
-        public void CreateAuthor(string name, DateTime DoB, DateTime DoD)
+        public void CreateAuthor(string name, DateTime dateOfBirth, DateTime dateOfDeath) // names
         {
             using (var db = new Context())
             {
                 Author author = new Author();
                 author.Name = name;
-                author.DateOfBirth = DoB;
-                author.DateOfDeath = DoD;
+                author.DateOfBirth = dateOfBirth;
+                author.DateOfDeath = dateOfDeath;
 
                 db.Authors.Add(author);
-                
 
                 db.SaveChanges();
             }

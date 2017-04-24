@@ -22,6 +22,7 @@ namespace BookScaleApp.Presenter
             var author = new Author { Name = author_name };
             List<string> BooksList = new List<string>();
             int id = 0;
+
             using (var db = new Context())
             {
                 var author_id = from b in db.Authors where (b.Name == author.Name) select b.ID;
@@ -50,15 +51,15 @@ namespace BookScaleApp.Presenter
             }
         }
 
-        public void UpdateBook(string AuthorName, string Name)
+        public void UpdateBook(string authorName, string name)
         {
             using (var db = new Context())
             {
-                var book = from b in db.Books where (b.Name == view.ChosenBook) select b;
+                var bookToUpdate = from book in db.Books where (book.Name == view.ChosenBook) select book;
 
-                var author_id = from a in db.Authors where (a.Name == AuthorName) select a;
-                book.FirstOrDefault().Author_ID = author_id.FirstOrDefault().ID;
-                book.FirstOrDefault().Name = Name;
+                var author_id = from author in db.Authors where (author.Name == authorName) select author;
+                bookToUpdate.FirstOrDefault().Author_ID = author_id.FirstOrDefault().ID;
+                bookToUpdate.FirstOrDefault().Name = name;
                 db.SaveChanges();
             }
         }
@@ -67,7 +68,7 @@ namespace BookScaleApp.Presenter
         {
             using (var db = new Context())
             {
-                var author_id = from a in db.Authors where (a.Name == AuthorName) select a;
+                var author_id = from author in db.Authors where (author.Name == AuthorName) select author;
                 Book book = new Book();
                 book.Author_ID = author_id.FirstOrDefault().ID;
                 book.Name = Name;

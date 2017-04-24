@@ -8,59 +8,59 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookScaleApp.Presenter;
-
+// Rename handlers
 namespace BookScaleApp.View
 {
     public partial class BookForm : Form, IBooksView
     {
-        string ChosenAuthor;
-        List<string> books;
+        private string chosenAuthor;
+        private List<string> books;
 
         private BooksPresenter presenter;
 
         public string ChosenBook
         {
-            get { return listBox1.GetItemText(listBox1.SelectedItem); }
+            get { return BooksListBox.GetItemText(BooksListBox.SelectedItem); }
         }
 
-        public BookForm(string CA)
+        public BookForm(string chosenAuthor)
         {
             presenter = new BooksPresenter(this);
             InitializeComponent();
-            ChosenAuthor = CA;
+            this.chosenAuthor = chosenAuthor;
 
             ShowInfo();
             foreach (var i in books)
             {
-                listBox1.Items.Add(i);
+                BooksListBox.Items.Add(i);
             }
         }
 
         public void ShowInfo()
         {
-            books = presenter.ShowBooks(ChosenAuthor);
-        }       
-
-        private void listBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = ChosenBook;
-            textBox2.Text = ChosenAuthor;
+            books = presenter.ShowBooks(chosenAuthor);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BooksListBox_Click(object sender, EventArgs e)
+        {
+            BookNameTextBox.Text = ChosenBook;
+            AuthorNameTextBox.Text = chosenAuthor;
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            presenter.UpdateBook(AuthorNameTextBox.Text, BookNameTextBox.Text);
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            presenter.CreateBook(AuthorNameTextBox.Text, BookNameTextBox.Text);
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             presenter.DeleteBook();
-            listBox1.Items.Remove(books.Find(x => x == ChosenBook));
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            presenter.UpdateBook(textBox2.Text, textBox1.Text);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            presenter.CreateBook(textBox2.Text, textBox1.Text);
+            BooksListBox.Items.Remove(books.Find(x => x == ChosenBook));
         }
     }
 }

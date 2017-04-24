@@ -11,6 +11,5 @@ namespace BookScaleApp.Model
         public int ID { get; set; }
         public string Name { get; set; }
         public int Author_ID { get; set; }
-
     }
 }
